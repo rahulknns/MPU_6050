@@ -36,14 +36,14 @@ private:
 public:
     MPU6050(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire,double g = ACCELERATION_DUE_TO_GRAVITY);
     ~MPU6050();
-    setAccelerometerRange(byte range);
-    setGyroscopeRange(byte range);
-    setSampleRateDivider(byte divider);
-    setLowpassCutOffFrequency(byte frequency);
-    enableSleepMode();
-    disableSleepMode();
-    getAccelerometerReadings(double& ax, double& ay, double& az);
-    getGyroscopeReadings(double& gx, double& gy, double& gz);
-    getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz);
+    void setAccelerometerRange(byte range);
+    void setGyroscopeRange(byte range);
+    void setSampleRateDivider(byte divider);
+    void setLowpassCutOffFrequency(byte frequency);
+    void enableSleepMode();
+    void disableSleepMode();
+    void getAccelerometerReadings(double& ax, double& ay, double& az);
+    void getGyroscopeReadings(double& gx, double& gy, double& gz);
+    void getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz);
 };
 #endif /* MPU6050_HPP_ */
