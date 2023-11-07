@@ -101,7 +101,7 @@ void MPU6050::setLowpassCutOffFrequency(byte frequency)
 */
 void MPU6050::enableSleepMode()
 {
-    writeBitsToReg(PWR_MGMT_1_REG, SLEEP_BITMASK, 1);
+    writeBitsToReg(PWR_MGMT_1_REG, SLEEP_BITMASK, 1<<6);
 }
 
 /**
@@ -110,7 +110,7 @@ void MPU6050::enableSleepMode()
 */
 void MPU6050::disableSleepMode()
 {
-    writeBitsToReg(PWR_MGMT_1_REG, SLEEP_BITMASK, 0);
+    writeBitsToReg(PWR_MGMT_1_REG, SLEEP_BITMASK, 0<<6);
 }
 
 /**
