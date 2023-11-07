@@ -34,7 +34,7 @@ class MPU6050 : public I2CDevice
 private:
     double _accelerometer_sensitivity, _gyroscope_sensitivity, _acceleration_due_to_gravity;
 public:
-    MPU6050(byte address, TwoWire* preferred_wire = &Wire,double g = ACCELERATION_DUE_TO_GRAVITY);
+    MPU6050(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire ,double g = ACCELERATION_DUE_TO_GRAVITY);
     ~MPU6050();
     void setAccelerometerRange(byte range);
     void setGyroscopeRange(byte range);

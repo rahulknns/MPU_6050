@@ -7,7 +7,7 @@
  * @param preferred_wire - pointer to the preferred wire object
  * @param g - acceleration due to gravity
 */
-MPU6050::MPU6050(byte address , TwoWire* preferred_wire = &Wire ,double g = ACCELERATION_DUE_TO_GRAVITY ) : I2CDevice(address, preferred_wire)
+MPU6050::MPU6050(byte address , TwoWire* preferred_wire  ,double g ) : I2CDevice(address, preferred_wire)
 {
     _accelerometer_sensitivity = ACCELERO_METER_SENSITIVITY_2;
     _gyroscope_sensitivity = GYROSCOPE_SENSITIVITY_250;
