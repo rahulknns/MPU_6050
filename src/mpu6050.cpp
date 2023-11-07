@@ -113,6 +113,35 @@ void MPU6050::disableSleepMode()
     writeBitsToReg(PWR_MGMT_1_REG, SLEEP_BITMASK, 0<<6);
 }
 
+
+/**
+ * @brief Calibrate the sensor
+ * @param n - number of samples to take
+ * @note The calibration is done by taking n samples and averaging them
+ * @note During calibration the sensor should be kept still
+*/
+void MPU6050::calibrateSensor(int n){
+    double ax, ay, az, gx, gy, gz;
+    for (int  sample_no = 0; sample_no < n; sample_no++)
+    {
+        getSensorsReadings(ax, ay, az, gx, gy, gz,false);
+        _ax_offset += ax;
+        _ay_offset += ay;
+        _az_offset += az;
+        _gx_offset += gx;
+        _gy_offset += gy;
+        _gz_offset += gz;
+        delay(50);
+    }
+    _ax_offset /= n;
+    _ay_offset /= n;
+    _az_offset /= n;
+    _gx_offset /= n;
+    _gy_offset /= n;
+    _gz_offset /= n;
+    
+}
+
 /**
  * @brief Get the Accelerometer Readings and update the ax, ay, az variables
  * @param ax - acceleration in x direction
@@ -120,13 +149,16 @@ void MPU6050::disableSleepMode()
  * @param az - acceleration in z direction
  * @note The acceleration values are in m/s^2
 */
-void MPU6050::getAccelerometerReadings(double& ax, double& ay, double& az)
+void MPU6050::getAccelerometerReadings(double& ax, double& ay, double& az,bool calibrated)
 {
     short int raw_a[3];
     readShortIntsFromReg(ACCEL_XOUT_H_REG, 3,  raw_a);
     ax = (double) _acceleration_due_to_gravity * raw_a[0] * _accelerometer_sensitivity;
     ay = (double) _acceleration_due_to_gravity * raw_a[1] * _accelerometer_sensitivity;
     az = (double) _acceleration_due_to_gravity * raw_a[2] * _accelerometer_sensitivity;
+    ax -= calibrated ? _ax_offset : 0;
+    ay -= calibrated ? _ay_offset : 0;
+    az -= calibrated ? _az_offset : 0;
 }
 
 /**
@@ -136,13 +168,16 @@ void MPU6050::getAccelerometerReadings(double& ax, double& ay, double& az)
  * @param gz - angular velocity in z direction
  * @note The angular velocity values are in rad/s
 */
-void MPU6050::getGyroscopeReadings(double& gx, double& gy, double& gz)
+void MPU6050::getGyroscopeReadings(double& gx, double& gy, double& gz,bool calibrated)
 {
     short int raw_g[3];
     readShortIntsFromReg(GYRO_XOUT_H_REG, 3,  raw_g);
     gx = (double) raw_g[0] * _gyroscope_sensitivity;
     gy = (double) raw_g[1] * _gyroscope_sensitivity;
     gz = (double) raw_g[2] * _gyroscope_sensitivity;
+    gx -= calibrated ? _gx_offset : 0;
+    gy -= calibrated ? _gy_offset : 0;
+    gz -= calibrated ? _gz_offset : 0;
 }
 
 /**
@@ -155,9 +190,9 @@ void MPU6050::getGyroscopeReadings(double& gx, double& gy, double& gz)
  * @param gz - angular velocity in z direction
  * @note The acceleration values are in m/s^2 and the angular velocity values are in rad/s
 */
-void MPU6050::getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz)
+void MPU6050::getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz,bool calibrated)
 {
-    getAccelerometerReadings(ax, ay, az);
-    getGyroscopeReadings(gx, gy, gz);
+    getAccelerometerReadings(ax, ay, az, calibrated);
+    getGyroscopeReadings(gx, gy, gz, calibrated);
 
 }

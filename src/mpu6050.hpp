@@ -33,6 +33,8 @@ class MPU6050 : public I2CDevice
 {
 private:
     double _accelerometer_sensitivity, _gyroscope_sensitivity, _acceleration_due_to_gravity;
+    double _ax_offset = 0.0, _ay_offset = 0.0, _az_offset = 0.0;
+    double _gx_offset = 0.0, _gy_offset = 0.0, _gz_offset = 0.0;
 public:
     MPU6050(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire ,double g = ACCELERATION_DUE_TO_GRAVITY);
     ~MPU6050();
@@ -42,8 +44,9 @@ public:
     void setLowpassCutOffFrequency(byte frequency);
     void enableSleepMode();
     void disableSleepMode();
-    void getAccelerometerReadings(double& ax, double& ay, double& az);
-    void getGyroscopeReadings(double& gx, double& gy, double& gz);
-    void getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz);
+    void calibrateSensor(int n = 100);
+    void getAccelerometerReadings(double& ax, double& ay, double& az, bool calibrated = true);
+    void getGyroscopeReadings(double& gx, double& gy, double& gz, bool calibrated = true);
+    void getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz, bool calibrated = true);
 };
 #endif /* MPU6050_HPP_ */
