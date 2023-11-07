@@ -139,6 +139,7 @@ void MPU6050::calibrateSensor(int n){
     _gx_offset /= n;
     _gy_offset /= n;
     _gz_offset /= n;
+    _az_offset -= _acceleration_due_to_gravity;
     
 }
 
