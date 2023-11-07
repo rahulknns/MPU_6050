@@ -12,6 +12,7 @@ MPU6050::MPU6050(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire
     _accelerometer_sensitivity = ACCELERO_METER_SENSITIVITY_2;
     _gyroscope_sensitivity = GYROSCOPE_SENSITIVITY_250;
     _acceleration_due_to_gravity = g;
+    disableSleepMode();
 
 }
 
