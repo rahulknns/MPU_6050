@@ -1,0 +1,3 @@
+[submodule "src/I2C_driver"]
+	path = src/I2C_driver
+	url = https://github.com/rahulknns/I2C_driver.git
