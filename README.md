@@ -6,4 +6,4 @@ A simple Arduino library for communicating with MPU6050. Provides only the basic
 
 # Usage:
 * Examples can be found in the examples/ folder.
-* Detailed API Usage documentation can be found [here](link).
+* Detailed API Usage documentation can be found [here](https://rahulknns.github.io/MPU_6050/).
