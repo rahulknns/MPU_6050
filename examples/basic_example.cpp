@@ -12,6 +12,7 @@ void setup(){
     mpu6050->setSampleRateDivider(0);
     mpu6050->setLowpassCutOffFrequency(0);
     mpu6050->disableSleepMode();
+    mpu6050->calibrateSensor();
 }
 
 void loop(){
