@@ -36,8 +36,9 @@ private:
     double _ax_offset = 0.0, _ay_offset = 0.0, _az_offset = 0.0;
     double _gx_offset = 0.0, _gy_offset = 0.0, _gz_offset = 0.0;
 public:
-    MPU6050(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire ,double g = ACCELERATION_DUE_TO_GRAVITY);
+    MPU6050();
     ~MPU6050();
+    void begin(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire ,double g = ACCELERATION_DUE_TO_GRAVITY);
     void setAccelerometerRange(byte range);
     void setGyroscopeRange(byte range);
     void setSampleRateDivider(byte divider);

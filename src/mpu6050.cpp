@@ -2,17 +2,10 @@
 #include "mpu6050_registers.hpp"
 
 /**
- * @brief Construct a new MPU6050::MPU6050 object
- * @param address - I2C address of the MPU6050 device
- * @param preferred_wire - pointer to the preferred wire object
- * @param g - acceleration due to gravity
+ * @brief construct the MPU6050::MPU6050 object
 */
-MPU6050::MPU6050(byte address , TwoWire* preferred_wire  ,double g ) : I2CDevice(address, preferred_wire)
+MPU6050::MPU6050()
 {
-    _accelerometer_sensitivity = ACCELERO_METER_SENSITIVITY_2;
-    _gyroscope_sensitivity = GYROSCOPE_SENSITIVITY_250;
-    _acceleration_due_to_gravity = g;
-    disableSleepMode();
 
 }
 
@@ -23,6 +16,24 @@ MPU6050::~MPU6050()
 {
 
 }
+
+/**
+ * @brief initialise MPU6050 Object, Must be called after serial.begin and wire.begin
+ * @param address - I2C address of the MPU6050 device
+ * @param preferred_wire - pointer to the preferred wire object
+ * @param g - acceleration due to gravity
+*/
+MPU6050::begin(byte address , TwoWire* preferred_wire  ,double g )
+{
+    I2CDevice::begin(address,preferred_wire);
+    _accelerometer_sensitivity = ACCELERO_METER_SENSITIVITY_2;
+    _gyroscope_sensitivity = GYROSCOPE_SENSITIVITY_250;
+    _acceleration_due_to_gravity = g;
+    disableSleepMode();
+
+}
+
+
 
 /**
  * @brief Set the Accelerometer Range object
