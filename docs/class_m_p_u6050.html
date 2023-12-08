@@ -84,13 +84,17 @@ Inheritance diagram for MPU6050:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a53f167a1a2b83e2a6717204e34601fd4" id="r_a53f167a1a2b83e2a6717204e34601fd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_u6050.html#a53f167a1a2b83e2a6717204e34601fd4">MPU6050</a> (byte address=DEFAULT_ADDRESS, TwoWire *preferred_wire=&amp;Wire, double g=ACCELERATION_DUE_TO_GRAVITY)</td></tr>
-<tr class="memdesc:a53f167a1a2b83e2a6717204e34601fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_m_p_u6050.html#a53f167a1a2b83e2a6717204e34601fd4" title="Construct a new MPU6050::MPU6050 object.">MPU6050::MPU6050</a> object.  <br /></td></tr>
-<tr class="separator:a53f167a1a2b83e2a6717204e34601fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0146d45537e4bd7a0d4c1c476fdab7" id="r_a7c0146d45537e4bd7a0d4c1c476fdab7"><td class="memItemLeft" align="right" valign="top"><a id="a7c0146d45537e4bd7a0d4c1c476fdab7" name="a7c0146d45537e4bd7a0d4c1c476fdab7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MPU6050</b> ()</td></tr>
+<tr class="memdesc:a7c0146d45537e4bd7a0d4c1c476fdab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the <a class="el" href="class_m_p_u6050.html#a7c0146d45537e4bd7a0d4c1c476fdab7" title="construct the MPU6050::MPU6050 object">MPU6050::MPU6050</a> object <br /></td></tr>
+<tr class="separator:a7c0146d45537e4bd7a0d4c1c476fdab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a409a2158e89617da2d44c5f6ad93f388" id="r_a409a2158e89617da2d44c5f6ad93f388"><td class="memItemLeft" align="right" valign="top"><a id="a409a2158e89617da2d44c5f6ad93f388" name="a409a2158e89617da2d44c5f6ad93f388"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~MPU6050</b> ()</td></tr>
-<tr class="memdesc:a409a2158e89617da2d44c5f6ad93f388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_m_p_u6050.html#a53f167a1a2b83e2a6717204e34601fd4" title="Construct a new MPU6050::MPU6050 object.">MPU6050::MPU6050</a> object. <br /></td></tr>
+<tr class="memdesc:a409a2158e89617da2d44c5f6ad93f388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_m_p_u6050.html#a7c0146d45537e4bd7a0d4c1c476fdab7" title="construct the MPU6050::MPU6050 object">MPU6050::MPU6050</a> object. <br /></td></tr>
 <tr class="separator:a409a2158e89617da2d44c5f6ad93f388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a915b57abc7a8c2c3cc638823651746bf" id="r_a915b57abc7a8c2c3cc638823651746bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_u6050.html#a915b57abc7a8c2c3cc638823651746bf">begin</a> (byte address=DEFAULT_ADDRESS, TwoWire *preferred_wire=&amp;Wire, double g=ACCELERATION_DUE_TO_GRAVITY)</td></tr>
+<tr class="memdesc:a915b57abc7a8c2c3cc638823651746bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise <a class="el" href="class_m_p_u6050.html">MPU6050</a> Object, Must be called after serial.begin and wire.begin  <br /></td></tr>
+<tr class="separator:a915b57abc7a8c2c3cc638823651746bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c0624fee47fdfeffbd4b8035511668a" id="r_a4c0624fee47fdfeffbd4b8035511668a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_u6050.html#a4c0624fee47fdfeffbd4b8035511668a">setAccelerometerRange</a> (byte range)</td></tr>
 <tr class="memdesc:a4c0624fee47fdfeffbd4b8035511668a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Accelerometer Range object.  <br /></td></tr>
 <tr class="separator:a4c0624fee47fdfeffbd4b8035511668a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,15 +126,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6868042db22ec3b53bb9a6896b12c9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Accelerometer and Gyroscope Readings and update the ax, ay, az, gx, gy, gz variables.  <br /></td></tr>
 <tr class="separator:a6868042db22ec3b53bb9a6896b12c9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a53f167a1a2b83e2a6717204e34601fd4" name="a53f167a1a2b83e2a6717204e34601fd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53f167a1a2b83e2a6717204e34601fd4">&#9670;&#160;</a></span>MPU6050()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a915b57abc7a8c2c3cc638823651746bf" name="a915b57abc7a8c2c3cc638823651746bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a915b57abc7a8c2c3cc638823651746bf">&#9670;&#160;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MPU6050::MPU6050 </td>
+          <td class="memname">MPU6050::begin </td>
           <td>(</td>
           <td class="paramtype">byte&#160;</td>
           <td class="paramname"><em>address</em> = <code>DEFAULT_ADDRESS</code>, </td>
@@ -155,7 +159,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="class_m_p_u6050.html#a53f167a1a2b83e2a6717204e34601fd4" title="Construct a new MPU6050::MPU6050 object.">MPU6050::MPU6050</a> object. </p>
+<p>initialise <a class="el" href="class_m_p_u6050.html">MPU6050</a> Object, Must be called after serial.begin and wire.begin </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">address</td><td>- I2C address of the <a class="el" href="class_m_p_u6050.html">MPU6050</a> device </td></tr>
@@ -167,7 +171,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a153554e4dfa82fc05560e189fe8b62e1" name="a153554e4dfa82fc05560e189fe8b62e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a153554e4dfa82fc05560e189fe8b62e1">&#9670;&#160;</a></span>calibrateSensor()</h2>
 
