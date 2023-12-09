@@ -32,13 +32,13 @@
 class MPU6050 : public I2CDevice
 {
 private:
-    double _accelerometer_sensitivity, _gyroscope_sensitivity, _acceleration_due_to_gravity;
-    double _ax_offset = 0.0, _ay_offset = 0.0, _az_offset = 0.0;
-    double _gx_offset = 0.0, _gy_offset = 0.0, _gz_offset = 0.0;
+    float _accelerometer_sensitivity, _gyroscope_sensitivity, _acceleration_due_to_gravity;
+    float _ax_offset = 0.0, _ay_offset = 0.0, _az_offset = 0.0;
+    float _gx_offset = 0.0, _gy_offset = 0.0, _gz_offset = 0.0;
 public:
     MPU6050();
     ~MPU6050();
-    void begin(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire ,double g = ACCELERATION_DUE_TO_GRAVITY);
+    void begin(byte address = DEFAULT_ADDRESS, TwoWire* preferred_wire = &Wire ,float g = ACCELERATION_DUE_TO_GRAVITY);
     void setAccelerometerRange(byte range);
     void setGyroscopeRange(byte range);
     void setSampleRateDivider(byte divider);
@@ -46,8 +46,8 @@ public:
     void enableSleepMode();
     void disableSleepMode();
     void calibrateSensor(int n = 100);
-    void getAccelerometerReadings(double& ax, double& ay, double& az, bool calibrated = true);
-    void getGyroscopeReadings(double& gx, double& gy, double& gz, bool calibrated = true);
-    void getSensorsReadings(double& ax, double& ay, double& az, double& gx, double& gy, double& gz, bool calibrated = true);
+    void getAccelerometerReadings(float& ax, float& ay, float& az, bool calibrated = true);
+    void getGyroscopeReadings(float& gx, float& gy, float& gz, bool calibrated = true);
+    void getSensorsReadings(float& ax, float& ay, float& az, float& gx, float& gy, float& gz, bool calibrated = true);
 };
 #endif /* MPU6050_HPP_ */
