@@ -23,7 +23,7 @@ MPU6050::~MPU6050()
  * @param preferred_wire - pointer to the preferred wire object
  * @param g - acceleration due to gravity
 */
-MPU6050::begin(byte address , TwoWire* preferred_wire  ,float g )
+void MPU6050::begin(byte address , TwoWire* preferred_wire  ,float g )
 {
     I2CDevice::begin(address,preferred_wire);
     _accelerometer_sensitivity = ACCELERO_METER_SENSITIVITY_2;
